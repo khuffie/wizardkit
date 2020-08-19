@@ -17,10 +17,24 @@ public class DateHelper: NSObject,  ObservableObject {
 	   return formatter
 	}()
 	
+	public let simpleShort: DateFormatter = {
+	   let formatter = DateFormatter()
+		formatter.dateFormat = "EEE',' MMM d"
+	   return formatter
+	}()
+	
+
 	public let short: DateFormatter = {
 	   let formatter = DateFormatter()
 		formatter.dateStyle = .short
 	   return formatter
+	}()
+
+	public let shortDay: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.timeZone = .current
+		formatter.dateFormat = "EEE"
+		return formatter
 	}()
 
 	
@@ -37,7 +51,60 @@ public class DateHelper: NSObject,  ObservableObject {
 		formatter.dateFormat = "h:mm a"
 		return formatter
 	}()
+	public let hourMinutesNoAMPM: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.timeZone = .current
+		formatter.dateFormat = "h:mm"
+		return formatter
+	}()
 
+	
+
+	public func friendlyDateDisplay(for date: Date, isShort: Bool = false) -> String {
+		
+		if Calendar.current.isDateInToday(date) {
+			return "Today"
+		} else if Calendar.current.isDateInTomorrow(date) {
+			return "Tomorrow"
+		} else if isShort {
+			return simpleShort.string(from: date )
+		} else {
+			return simple.string(from: date )
+		}
+		
+		
+	}
+	
+
+
+	
+	public func today() -> Date {
+		Calendar.current.startOfDay(for: Date())
+	}
+	
+	public func tomorrow() -> Date {
+		
+		// Create the end date components.
+		var tomorrowComponents = DateComponents()
+		tomorrowComponents.day = 1
+		tomorrowComponents.hour = 23
+		tomorrowComponents.minute = 59
+		tomorrowComponents.second = 59
+		let tomorrowDate:Date = Calendar.current.date(byAdding: tomorrowComponents, to: Date())!
+
+		return tomorrowDate
+	}
+	
+	public func nextWidgetRefreshDate(frequency:Int = 15) -> Date {
+		let frequency:Int = frequency
+		let interval:TimeInterval = 60 * Double(frequency)
+		let original = Date()
+		let refreshDate = Date(timeIntervalSinceReferenceDate:
+								(original.timeIntervalSinceReferenceDate / interval).rounded(.up) * interval)
+
+		return refreshDate
+	}
+	
 	
 	override private init() {
 		super.init()
