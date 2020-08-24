@@ -11,19 +11,30 @@ import SwiftUI
 
 extension Color {
 	public static let customOrange = Color("customOrange")
-	public static let main = Color("main")
+	public static var main = Color("orange")
+	
+	public static var widgetLightBG = Color.white
+	public static var widgetDarkBG = Color("backgroundColor")
+	public static var widgetBackgroundColor = Color(UIColor { traitCollection in
+		return traitCollection.userInterfaceStyle == .dark ? .black : .white
+	})
+
+	
 	public static let darkGreen = Color("darkGreen")
+	public static let lightBlue = Color("lightBlue")
 	public static let backgroundColor = Color("backgroundColor")
 	public static let cardBackgroundColor = Color("cardBackgroundColor")
-	public static let lightBlue = Color("lightBlue")
+
 }
 
 extension UIColor {
-	public static let main = UIColor(named: "main")
+	public static var main = UIColor(named: "orange")
 	public static let customOrange = UIColor(named: "customOrange")
 	public static let darkGreen = UIColor(named: "darkGreen")
 	public static let lightBlue = UIColor(named: "lightBlue")
 }
+
+
 
 
 // MARK:  Color to UICOlor
@@ -37,6 +48,8 @@ fileprivate struct ColorConversionError: Swift.Error {
 }
 
 extension Color {
+	
+	
 	
 	//@available(*, deprecated, message: "This is fragile and likely to break at some point. Hopefully it won't be required for long.")
 	public  var uiColor: UIColor {

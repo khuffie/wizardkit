@@ -65,9 +65,9 @@ public struct WeekView<DateView>: View where DateView: View {
 	}
 
 	public var body: some View {
-		HStack {
+		HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
 			ForEach(days, id: \.self) { date in
-				HStack {
+				HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
 					if self.calendar.isDate(self.week, equalTo: date, toGranularity: .month) {
 						self.content(date)
 					} else {
@@ -110,13 +110,12 @@ public struct MonthView<DateView>: View where DateView: View {
 		let component = calendar.component(.month, from: month)
 		let formatter = component == 1 ? DateFormatter.monthAndYear : .month
 		return Text(formatter.string(from: month).uppercased())
-			.font(.caption).bold()
-			.foregroundColor(.main)
+			.textHeader()
 			
 	}
 
 	public var body: some View {
-		VStack(alignment: .leading) {
+		VStack(alignment: .leading, spacing: 0) {
 			if showHeader {
 				header
 			}

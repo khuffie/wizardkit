@@ -29,6 +29,21 @@ public class DateHelper: NSObject,  ObservableObject {
 		formatter.dateStyle = .short
 	   return formatter
 	}()
+	
+	public let fullDay: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.timeZone = .current
+		formatter.dateFormat = "EEEE"
+		return formatter
+	}()
+	
+	public let dayAndDate: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.timeZone = .current
+		formatter.dateFormat = "EEEE, d"
+		return formatter
+	}()
+
 
 	public let shortDay: DateFormatter = {
 		let formatter = DateFormatter()
@@ -47,14 +62,18 @@ public class DateHelper: NSObject,  ObservableObject {
 
 	public let hourMinutes: DateFormatter = {
 		let formatter = DateFormatter()
-		formatter.timeZone = .current
-		formatter.dateFormat = "h:mm a"
+		//formatter.timeZone = .current
+		formatter.timeStyle = .short
+		//formatter.setLocalizedDateFormatFromTemplate("HH:mm a")
+	//	formatter.dateFormat = "h:mm a"
 		return formatter
 	}()
 	public let hourMinutesNoAMPM: DateFormatter = {
 		let formatter = DateFormatter()
 		formatter.timeZone = .current
-		formatter.dateFormat = "h:mm"
+		formatter.timeStyle = .short
+		//formatter.setLocalizedDateFormatFromTemplate("HH:mm")
+		//formatter.dateFormat = "h:mm"
 		return formatter
 	}()
 
@@ -76,6 +95,13 @@ public class DateHelper: NSObject,  ObservableObject {
 	}
 	
 
+	public func timeNoAMPM(from date:Date) -> String {
+		var string = DateHelper.shared.hourMinutes.string(from: date )
+		string = string.replacingOccurrences(of: " AM", with: "")
+		string = string.replacingOccurrences(of: " PM", with: "")
+		
+		return string
+	}
 
 	
 	public func today() -> Date {
