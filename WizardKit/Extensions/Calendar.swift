@@ -1,5 +1,6 @@
 import SwiftUI
 
+
 //https://gist.github.com/mecid/f8859ea4bdbd02cf5d440d58e936faec
 //https://swiftwithmajid.com/2020/05/06/building-calendar-without-uicollectionview-in-swiftui/
 
@@ -44,13 +45,15 @@ fileprivate extension Calendar {
 }
 
 public struct WeekView<DateView>: View where DateView: View {
-	@Environment(\.calendar) var calendar
+	//@Environment(\.calendar) var calendar
 
 	let week: Date
 	let content: (Date) -> DateView
+	var calendar:Calendar
 
-	public init(week: Date, @ViewBuilder content: @escaping (Date) -> DateView) {
+	public init(week: Date, calendar: Calendar, @ViewBuilder content: @escaping (Date) -> DateView) {
 		self.week = week
+		self.calendar = calendar
 		self.content = content
 	}
 
@@ -80,8 +83,9 @@ public struct WeekView<DateView>: View where DateView: View {
 }
 
 public struct MonthView<DateView>: View where DateView: View {
-	@Environment(\.calendar) var calendar
+	//@Environment(\.calendar) var calendar
 
+	var calendar:Calendar
 	let month: Date
 	let showHeader: Bool
 	let content: (Date) -> DateView
@@ -89,11 +93,15 @@ public struct MonthView<DateView>: View where DateView: View {
 	public init(
 		month: Date,
 		showHeader: Bool = true,
+		startOfWeek:Int = 1,
 		@ViewBuilder content: @escaping (Date) -> DateView
 	) {
 		self.month = month
 		self.content = content
 		self.showHeader = showHeader
+		
+		calendar = Calendar(identifier: .gregorian)
+		calendar.firstWeekday = startOfWeek
 	}
 
 	private var weeks: [Date] {
@@ -111,6 +119,7 @@ public struct MonthView<DateView>: View where DateView: View {
 		let formatter = component == 1 ? DateFormatter.monthAndYear : .month
 		return Text(formatter.string(from: month).uppercased())
 			.textHeader()
+			.padding(.leading, 4)
 			
 	}
 
@@ -121,7 +130,7 @@ public struct MonthView<DateView>: View where DateView: View {
 			}
 
 			ForEach(weeks, id: \.self) { week in
-				WeekView(week: week, content: self.content)
+				WeekView(week: week, calendar: calendar, content: self.content)
 			}
 		}
 	}

@@ -108,6 +108,12 @@ extension HStack {
 		self.modifier(CardModifier(opacity: opacity))
 	}
 	
+	public func widget() -> some View {
+		self.modifier(WidgetModifier())
+
+	}
+
+	
 	public func widgetInApp(opacity: Double = 1.0) -> some View {
 		self.modifier(WidgetInAppModifier(opacity: opacity))
 	}
