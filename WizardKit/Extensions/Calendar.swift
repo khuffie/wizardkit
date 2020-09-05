@@ -50,11 +50,14 @@ public struct WeekView<DateView>: View where DateView: View {
 	let week: Date
 	let content: (Date) -> DateView
 	var calendar:Calendar
+	var weekdays:[String]
 
 	public init(week: Date, calendar: Calendar, @ViewBuilder content: @escaping (Date) -> DateView) {
 		self.week = week
 		self.calendar = calendar
 		self.content = content
+		
+		self.weekdays = calendar.veryShortWeekdaySymbols
 	}
 
 	private var days: [Date] {
@@ -69,6 +72,7 @@ public struct WeekView<DateView>: View where DateView: View {
 
 	public var body: some View {
 		HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
+			
 			ForEach(days, id: \.self) { date in
 				HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
 					if self.calendar.isDate(self.week, equalTo: date, toGranularity: .month) {
@@ -120,6 +124,7 @@ public struct MonthView<DateView>: View where DateView: View {
 		return Text(formatter.string(from: month).uppercased())
 			.textHeader()
 			.padding(.leading, 4)
+		
 			
 	}
 

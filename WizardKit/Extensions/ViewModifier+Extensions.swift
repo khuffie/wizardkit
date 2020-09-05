@@ -54,6 +54,20 @@ public struct CardModifier:ViewModifier {
 
 }
 
+public struct RowModifier:ViewModifier {
+	
+	let opacity: Double
+	@Environment(\.colorScheme) var colorScheme
+	
+	public func body(content: Content) -> some View {
+		content
+			.padding(10)
+			.background(colorScheme == .dark ? Color.cardBackgroundColor.opacity(opacity) : Color.main.opacity(0.1))
+			.cornerRadius(5)
+	}
+
+}
+
 public struct WidgetInAppModifier:ViewModifier {
 	
 	let opacity: Double
@@ -79,6 +93,7 @@ public struct WidgetModifier:ViewModifier {
 	
 	public func body(content: Content) -> some View {
 		content
+			.padding(16)
 			.background(Color.widgetBackgroundColor)
 			
 	}
@@ -86,6 +101,36 @@ public struct WidgetModifier:ViewModifier {
 	
 }
 
+import Combine
+import SwiftUI
+
+
+//from https://stackoverflow.com/questions/58733003/swiftui-how-to-create-textfield-that-only-accepts-numbers
+public struct NumberOnlyViewModifier: ViewModifier {
+
+	@Binding var text: String
+
+	public init(text: Binding<String>) {
+		self._text = text
+	}
+
+	public func body(content: Content) -> some View {
+		content
+			.keyboardType(.numberPad)
+			.onReceive(Just(text)) { newValue in
+				let filtered = newValue.filter { "0123456789".contains($0) }
+				if filtered != newValue {
+					self.text = filtered
+				}
+			}
+	}
+}
+
+extension TextField {
+	public func numeric(text: Binding<String>) -> some View {
+		self.modifier(NumberOnlyViewModifier(text: text))
+	}
+}
 
 extension VStack {
 	public func card(opacity: Double = 1.0) -> some View {
@@ -107,6 +152,11 @@ extension HStack {
 	public func card(opacity: Double = 1.0) -> some View {
 		self.modifier(CardModifier(opacity: opacity))
 	}
+	
+	public func row(opacity: Double = 1.0) -> some View {
+		self.modifier(RowModifier(opacity: opacity))
+	}
+
 	
 	public func widget() -> some View {
 		self.modifier(WidgetModifier())

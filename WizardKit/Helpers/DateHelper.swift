@@ -77,6 +77,11 @@ public class DateHelper: NSObject,  ObservableObject {
 		return formatter
 	}()
 
+	public let month: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "MMMM"
+		return formatter
+	}()
 	
 
 	public func friendlyDateDisplay(for date: Date, isShort: Bool = false) -> String {
@@ -130,6 +135,54 @@ public class DateHelper: NSObject,  ObservableObject {
 
 		return refreshDate
 	}
+	
+	public func getDaysUntil(from date:Date, to:Date) -> Int {
+		
+		let components = Calendar.current.dateComponents([.day], from: date, to: to)
+		
+		return components.day!
+	}
+	
+	public func getHoursUntil(from date:Date, to:Date) -> Int {
+		
+		let components = Calendar.current.dateComponents([.day, .hour], from: date, to: to)
+		
+		return components.hour!
+	}
+
+	
+	public func getWeekdaySymbols(for firstDayOfWeek:Int, type: String = "short") -> [String] {
+		//print("WizardKit.getWeekdaySymbols \(firstDayOfWeek)")
+		var symbols:[String]
+		
+		switch type {
+		default:
+			symbols = Calendar.current.veryShortStandaloneWeekdaySymbols
+		}
+		
+//		if firstDayOfWeek == 1 {
+//			return symbols
+//		}
+		
+		var sortedSymbols:[String] = []
+		var index = firstDayOfWeek - 1
+		
+		//the first one
+		while sortedSymbols.count < symbols.count {
+			sortedSymbols.append(symbols[index])
+			
+			index += 1
+			if index == symbols.count {
+				index = 0
+			}
+		}
+		
+		
+		
+		return sortedSymbols
+		
+	}
+	
 	
 	
 	override private init() {
