@@ -76,10 +76,13 @@ public struct WidgetInAppModifier:ViewModifier {
 	
 	public func body(content: Content) -> some View {
 		content
-			.frame(width: 340, height: 150)
+			.frame(height: 150)
 			//.background(Color.cardBackgroundColor.opacity(opacity))
 			.background(colorScheme == .dark ? Color.cardBackgroundColor.opacity(opacity) : Color.main.opacity(0.1))
-			.cornerRadius(25)
+			.cornerRadius(15)
+			.padding([.leading, .trailing])
+			.padding(.bottom, 10)
+
 			
 	}
 

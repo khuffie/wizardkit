@@ -44,7 +44,14 @@ public class DateHelper: NSObject,  ObservableObject {
 		return formatter
 	}()
 
+	public let veryShortDay: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.timeZone = .current
+		formatter.dateFormat = "EEEEE"
+		return formatter
+	}()
 
+	
 	public let shortDay: DateFormatter = {
 		let formatter = DateFormatter()
 		formatter.timeZone = .current
