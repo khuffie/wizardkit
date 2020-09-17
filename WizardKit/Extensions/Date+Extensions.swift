@@ -38,3 +38,29 @@ extension Date: XMLElementDeserializable, XMLAttributeDeserializable {
         return dateFormatter.date(from: dateAsString)
     }
 }
+
+
+//from https://stackoverflow.com/questions/43663622/is-a-date-in-same-week-month-year-of-another-date-in-swift
+extension Date {
+
+	public func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
+		calendar.isDate(self, equalTo: date, toGranularity: component)
+	}
+
+	public func isInSameYear(as date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
+	public func isInSameMonth(as date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
+	public func isInSameWeek(as date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
+
+	public func isInSameDay(as date: Date) -> Bool { Calendar.current.isDate(self, inSameDayAs: date) }
+
+	public var isInThisYear:  Bool { isInSameYear(as: Date()) }
+	public var isInThisMonth: Bool { isInSameMonth(as: Date()) }
+	public var isInThisWeek:  Bool { isInSameWeek(as: Date()) }
+
+	public var isInYesterday: Bool { Calendar.current.isDateInYesterday(self) }
+	public var isInToday:     Bool { Calendar.current.isDateInToday(self) }
+	public var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
+
+	public var isInTheFuture: Bool { self > Date() }
+	public var isInThePast:   Bool { self < Date() }
+}

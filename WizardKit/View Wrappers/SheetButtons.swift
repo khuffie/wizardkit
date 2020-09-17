@@ -55,7 +55,7 @@ public struct SheetCloseButton: View {
 				self.isPresented = false
 			}) {
 				Text("Close")
-					.primaryButton()
+					//.primaryButton()
 			}
 			Spacer()
 		}

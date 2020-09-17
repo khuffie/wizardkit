@@ -50,12 +50,14 @@ public struct WeekView<DateView>: View where DateView: View {
 	let week: Date
 	let content: (Date) -> DateView
 	var calendar:Calendar
+	let peak: Bool
 	var weekdays:[String]
 
-	public init(week: Date, calendar: Calendar, @ViewBuilder content: @escaping (Date) -> DateView) {
+	public init(week: Date, calendar: Calendar, peak: Bool, @ViewBuilder content: @escaping (Date) -> DateView) {
 		self.week = week
 		self.calendar = calendar
 		self.content = content
+		self.peak = peak
 		
 		self.weekdays = calendar.veryShortWeekdaySymbols
 	}
@@ -71,11 +73,13 @@ public struct WeekView<DateView>: View where DateView: View {
 	}
 
 	public var body: some View {
-		HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
+		HStack(alignment: .center, spacing: 0) {
 			
 			ForEach(days, id: \.self) { date in
 				HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
 					if self.calendar.isDate(self.week, equalTo: date, toGranularity: .month) {
+						self.content(date)
+					} else if peak {
 						self.content(date)
 					} else {
 						self.content(date).hidden()
@@ -91,19 +95,20 @@ public struct MonthView<DateView>: View where DateView: View {
 
 	var calendar:Calendar
 	let month: Date
-	let showHeader: Bool
+	let showHeader: Bool = false
+	let peak: Bool
 	let content: (Date) -> DateView
 
 	public init(
 		month: Date,
-		showHeader: Bool = true,
 		startOfWeek:Int = 1,
+		peak: Bool = false,
 		@ViewBuilder content: @escaping (Date) -> DateView
 	) {
 		self.month = month
 		self.content = content
-		self.showHeader = showHeader
-		
+		self.peak = peak
+
 		calendar = Calendar(identifier: .gregorian)
 		calendar.firstWeekday = startOfWeek
 	}
@@ -122,7 +127,6 @@ public struct MonthView<DateView>: View where DateView: View {
 		let component = calendar.component(.month, from: month)
 		let formatter = component == 1 ? DateFormatter.monthAndYear : .month
 		return Text(formatter.string(from: month).uppercased())
-			.textHeader()
 			.padding(.leading, 4)
 		
 			
@@ -135,7 +139,7 @@ public struct MonthView<DateView>: View where DateView: View {
 			}
 
 			ForEach(weeks, id: \.self) { week in
-				WeekView(week: week, calendar: calendar, content: self.content)
+				WeekView(week: week, calendar: calendar, peak: peak, content: self.content)
 			}
 		}
 	}

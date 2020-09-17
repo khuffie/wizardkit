@@ -11,10 +11,10 @@ import SwiftUI
 public struct TextButton: ViewModifier {
     public func body(content: Content) -> some View {
         content
-            .accentColor(.main)
+            .accentColor(.)
     }
 }
-
+main
 public struct SectionHeader: ViewModifier {
     public func body(content: Content) -> some View {
 		VStack(alignment: .leading) {

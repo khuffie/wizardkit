@@ -11,6 +11,19 @@ import Foundation
 public class DateHelper: NSObject,  ObservableObject {
 	public static let shared = DateHelper()
 	
+	
+	public let month: DateFormatter = {
+	   let formatter = DateFormatter()
+		formatter.dateFormat = "MMMM"
+	   return formatter
+	}()
+	public let monthYear: DateFormatter = {
+	   let formatter = DateFormatter()
+		formatter.dateFormat = "MMMM YYYY"
+	   return formatter
+	}()
+
+	
 	public let simple: DateFormatter = {
 	   let formatter = DateFormatter()
 		formatter.dateFormat = "EEEE',' MMMM d"
@@ -30,6 +43,13 @@ public class DateHelper: NSObject,  ObservableObject {
 	   return formatter
 	}()
 	
+	public let medium: DateFormatter = {
+	   let formatter = DateFormatter()
+		formatter.dateStyle = .medium
+	   return formatter
+	}()
+
+	
 	public let fullDay: DateFormatter = {
 		let formatter = DateFormatter()
 		formatter.timeZone = .current
@@ -43,6 +63,14 @@ public class DateHelper: NSObject,  ObservableObject {
 		formatter.dateFormat = "EEEE, d"
 		return formatter
 	}()
+	
+	public let date: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.timeZone = .current
+		formatter.dateFormat = "d"
+		return formatter
+	}()
+
 
 	public let veryShortDay: DateFormatter = {
 		let formatter = DateFormatter()
@@ -84,12 +112,6 @@ public class DateHelper: NSObject,  ObservableObject {
 		return formatter
 	}()
 
-	public let month: DateFormatter = {
-		let formatter = DateFormatter()
-		formatter.dateFormat = "MMMM"
-		return formatter
-	}()
-	
 
 	public func friendlyDateDisplay(for date: Date, isShort: Bool = false) -> String {
 		
@@ -188,6 +210,12 @@ public class DateHelper: NSObject,  ObservableObject {
 		
 		return sortedSymbols
 		
+	}
+	
+	public func is24Hour() -> Bool {
+		let dateFormat = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: Locale.current)!
+		
+		return dateFormat.firstIndex(of: "a") == nil
 	}
 	
 	
