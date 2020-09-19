@@ -29,14 +29,15 @@ public class NotificationsHelper: NSObject, ObservableObject {
 	public func getAuthorizationStatus() {
 		nc.getNotificationSettings(completionHandler: { settings in
 			switch settings.authorizationStatus {
-			case .notDetermined, .provisional, .denied, .ephemeral:
+			case .notDetermined, .provisional, .denied:
 				self.setAuthStatus(with: false)
 				return
 			case .authorized:
 				//print("WizardKit.NotificationsHelper.autStaths \(self.areNotificationAvailable)")
 				self.setAuthStatus(with: true)
 				return
-			@unknown default:
+			default:
+				self.setAuthStatus(with: false)
 				return
 			}
 			
@@ -54,7 +55,7 @@ public class NotificationsHelper: NSObject, ObservableObject {
 		nc.getNotificationSettings(completionHandler: { settings in
 			
 			switch settings.authorizationStatus {
-			case .notDetermined, .provisional, .ephemeral:
+			case .notDetermined, .provisional:
 				//request authorization
 				self.nc.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
 					if success {
@@ -72,8 +73,8 @@ public class NotificationsHelper: NSObject, ObservableObject {
 				//we already have authorization
 				self.setAuthStatus(with: false)
 				return
-			@unknown default:
-				return
+			default:
+				self.setAuthStatus(with: false)
 			}
 		})
 	}
