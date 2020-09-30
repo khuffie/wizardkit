@@ -37,6 +37,7 @@ public class DateHelper: NSObject,  ObservableObject {
 	}()
 	
 
+	
 	public let short: DateFormatter = {
 	   let formatter = DateFormatter()
 		formatter.dateStyle = .short
@@ -49,6 +50,13 @@ public class DateHelper: NSObject,  ObservableObject {
 	   return formatter
 	}()
 
+	public let mediumWithTime: DateFormatter = {
+	   let formatter = DateFormatter()
+		formatter.dateStyle = .medium
+		formatter.timeStyle = .short
+	   return formatter
+	}()
+
 	
 	public let fullDay: DateFormatter = {
 		let formatter = DateFormatter()
@@ -56,6 +64,14 @@ public class DateHelper: NSObject,  ObservableObject {
 		formatter.dateFormat = "EEEE"
 		return formatter
 	}()
+	
+	public let shortDayAndDate: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.timeZone = .current
+		formatter.dateFormat = "EE d"
+		return formatter
+	}()
+
 	
 	public let dayAndDate: DateFormatter = {
 		let formatter = DateFormatter()
@@ -94,6 +110,14 @@ public class DateHelper: NSObject,  ObservableObject {
 		formatter.dateFormat = "h a"
 		return formatter
 	}()
+	
+	public let hourNoSign: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.timeZone = .current
+		formatter.dateFormat = "h"
+		return formatter
+	}()
+
 
 	public let hourMinutes: DateFormatter = {
 		let formatter = DateFormatter()

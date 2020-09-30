@@ -61,6 +61,35 @@ extension Date {
 	public var isInToday:     Bool { Calendar.current.isDateInToday(self) }
 	public var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
 
-	public var isInTheFuture: Bool { self > Date() }
-	public var isInThePast:   Bool { self < Date() }
+	public var isInTheFuture: Bool {
+		self.endOfDay > Date().endOfDay
+	}
+	public var isInThePast:   Bool {
+		self.startOfDay < Date().startOfDay
+	}
+}
+
+extension Date {
+	public var startOfDay: Date {
+		return Calendar.current.startOfDay(for: self)
+	}
+
+	public var endOfDay: Date {
+		var components = DateComponents()
+		components.day = 1
+		components.second = -1
+		return Calendar.current.date(byAdding: components, to: startOfDay)!
+	}
+
+	public var startOfMonth: Date {
+		let components = Calendar.current.dateComponents([.year, .month], from: startOfDay)
+		return Calendar.current.date(from: components)!
+	}
+
+	public var endOfMonth: Date {
+		var components = DateComponents()
+		components.month = 1
+		components.second = -1
+		return Calendar.current.date(byAdding: components, to: startOfMonth)!
+	}
 }
