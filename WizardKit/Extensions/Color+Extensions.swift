@@ -30,6 +30,8 @@ extension Color {
 }
 
 
+
+
 extension UIColor {
 	public static var main = UIColor(named: "orange")
 	public static let customOrange = UIColor(named: "customOrange")
@@ -143,6 +145,7 @@ extension Color {
 		}
 	}
 }
+
 
 fileprivate extension Color {
 	

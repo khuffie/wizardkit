@@ -25,6 +25,9 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 	
 	public var locationCompletionHandler: (() -> Void)?
 	
+	
+	var completion: (() -> Void)?
+	
 	override public init() {
 		isLocationAvailable = false
 
@@ -33,21 +36,42 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 		super.init()
 
 		locationManager.delegate = self
+		locationManager.startMonitoringSignificantLocationChanges()
+		self.userLocation = locationManager.location
+		
+		
+		switch CLLocationManager.authorizationStatus() {
+		case .restricted, .denied, .notDetermined:
+			isLocationAvailable = false
+		case .authorizedWhenInUse, .authorizedAlways:
+			isLocationAvailable =  true
+		@unknown default:
+			isLocationAvailable =  false
+		}
+
+		
 	}
 	
-	public func requestLocationPermission() {
+	public func requestLocationPermission( completion: @escaping () -> Void ) {
+		print("LocationHelper.requestLocationPermission")
+		self.completion = completion
+		
 		switch CLLocationManager.authorizationStatus() {
 		case .restricted, .denied:
-//			let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//			appDelegate.showLocationServicesAlert()
+			//let appDelegate = UIApplication.shared.delegate as! AppDelegate
+			//appDelegate.showLocationServicesAlert()
 			RootAlerter.shared.showLocationServicesAlert()
 			return
 		case .notDetermined:
-			self.locationManager.requestWhenInUseAuthorization()
+			self.locationManager.requestAlwaysAuthorization()
+			
 			return
 		case .authorizedWhenInUse, .authorizedAlways:
+			print("LocationHelper.requestLocationPermission authorizedWhenInUse authorizedAlways")
 			return
 		@unknown default:
+			print("LocationHelper.requestLocationPermission unknown")
+
 			break
 		}
 	}
@@ -58,6 +82,7 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 	}
 	
 	public func checkIfLocationAvailable() -> Bool {
+		print("WizardKit.LocationHelper.checkIfLocationAvailable \(CLLocationManager.authorizationStatus())")
 		switch CLLocationManager.authorizationStatus() {
 		case .restricted, .denied, .notDetermined:
 			return false
@@ -70,12 +95,19 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 	}
 	
 	public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-		//print("WizardKit.LocationHelper.didChangeAuthorization")
 		self.isLocationAvailable = self.checkIfLocationAvailable()
+		print("WizardKit.LocationHelper.didChangeAuthorization \(self.isLocationAvailable) ")
+		
+		if completion != nil {
+			DispatchQueue.main.async {
+				self.completion!()
+			}
+		}
+		
 	}
 	
 	public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		//print("WizardKit.LocationHelper.didUpdateLocations")
+		print("WizardKit.LocationHelper.didUpdateLocations")
 		self.userLocation = locations.last
 		self.getAddress()
 		
