@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		790085CB252E153A00C53D9F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790085CA252E153A00C53D9F /* ImagePicker.swift */; };
 		79186BE824B8E8E50006183F /* WizardKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 79186BE624B8E8E50006183F /* WizardKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79186C0524B8EF450006183F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79186BFF24B8EF440006183F /* LocationHelper.swift */; };
 		79186C0624B8EF450006183F /* RootAlerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79186C0024B8EF440006183F /* RootAlerter.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		790085CA252E153A00C53D9F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		79186BE324B8E8E50006183F /* WizardKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WizardKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79186BE624B8E8E50006183F /* WizardKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WizardKit.h; sourceTree = "<group>"; };
 		79186BE724B8E8E50006183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				79186C2024B8F2030006183F /* WebView.swift */,
 				79186C2124B8F2030006183F /* ActivityIndicator.swift */,
 				79EE02C324C239840044B16D /* Checkbox.swift */,
+				790085CA252E153A00C53D9F /* ImagePicker.swift */,
 			);
 			path = "View Wrappers";
 			sourceTree = "<group>";
@@ -189,7 +192,7 @@
 		79186BDA24B8E8E50006183F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Ahmed El-Khuffash";
 				TargetAttributes = {
 					79186BE224B8E8E50006183F = {
@@ -236,6 +239,7 @@
 				79186C0924B8EF450006183F /* WizardHelper.swift in Sources */,
 				7979538224C0F4F3005F877A /* SheetButtons.swift in Sources */,
 				79186C1824B8F0B80006183F /* Date+Extensions.swift in Sources */,
+				790085CB252E153A00C53D9F /* ImagePicker.swift in Sources */,
 				79186C1A24B8F0B80006183F /* EmptyModifier.swift in Sources */,
 				79186C2224B8F2030006183F /* HTMLLabel.swift in Sources */,
 				79186C1B24B8F0B80006183F /* FileManager+Extensions.swift in Sources */,
@@ -285,6 +289,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -348,6 +353,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
