@@ -14,11 +14,9 @@ public struct ImagePicker: UIViewControllerRepresentable {
 	
 	@Environment(\.presentationMode) public var presentationMode
 	@Binding public var image: UIImage?
-	@Binding public var imageUrl: URL?
 	
-	public init(image: Binding<UIImage?>, imageUrl: Binding<URL?>) {
+	public init(image: Binding<UIImage?>) {
 		self._image = image
-		self._imageUrl = imageUrl
 	}
 	
 	public func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
@@ -48,10 +46,10 @@ public struct ImagePicker: UIViewControllerRepresentable {
 				parent.image = uiImage
 			}
 			
-			if let imageUrl = info[.imageURL] as? URL {
-				parent.imageUrl = imageUrl
-				print(imageUrl)
-			}
+//			if let imageUrl = info[.imageURL] as? URL {
+//				parent.imageUrl = imageUrl
+//				print(imageUrl)
+//			}
 			
 			parent.presentationMode.wrappedValue.dismiss()
 		}
