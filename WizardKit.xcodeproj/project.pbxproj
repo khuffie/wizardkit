@@ -27,6 +27,9 @@
 		79186C2424B8F2030006183F /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79186C2124B8F2030006183F /* ActivityIndicator.swift */; };
 		79581E70250AD43400D542CE /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79581E6F250AD43400D542CE /* Bundle+Extensions.swift */; };
 		7979538224C0F4F3005F877A /* SheetButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7979538124C0F4F3005F877A /* SheetButtons.swift */; };
+		79C452C6255C9BF900A349AD /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C452C5255C9BF900A349AD /* UIImage+Extensions.swift */; };
+		79C452C9255C9C1900A349AD /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C452C8255C9C1900A349AD /* CGSize+Extensions.swift */; };
+		79C45329255CCAF500A349AD /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C45328255CCAF500A349AD /* URL+Extensions.swift */; };
 		79D73E4C24DE0A940074A4E9 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D73E4B24DE0A940074A4E9 /* Calendar.swift */; };
 		79EE02C424C239840044B16D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE02C324C239840044B16D /* Checkbox.swift */; };
 		79F4871124BA4D0600FF1041 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = 79F4871024BA4D0600FF1041 /* SWXMLHash */; };
@@ -56,6 +59,9 @@
 		79581E6F250AD43400D542CE /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		7979538124C0F4F3005F877A /* SheetButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetButtons.swift; sourceTree = "<group>"; };
 		79920B0424BCF52E00FC91F0 /* ViewModifier+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewModifier+Extensions.swift"; sourceTree = "<group>"; };
+		79C452C5255C9BF900A349AD /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		79C452C8255C9C1900A349AD /* CGSize+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Extensions.swift"; sourceTree = "<group>"; };
+		79C45328255CCAF500A349AD /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		79D73E4B24DE0A940074A4E9 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		79EE02C324C239840044B16D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +140,9 @@
 				79186C1624B8F0B80006183F /* WMSTileOverlay.swift */,
 				79D73E4B24DE0A940074A4E9 /* Calendar.swift */,
 				79581E6F250AD43400D542CE /* Bundle+Extensions.swift */,
+				79C452C5255C9BF900A349AD /* UIImage+Extensions.swift */,
+				79C452C8255C9C1900A349AD /* CGSize+Extensions.swift */,
+				79C45328255CCAF500A349AD /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,6 +250,7 @@
 				79186C1824B8F0B80006183F /* Date+Extensions.swift in Sources */,
 				790085CB252E153A00C53D9F /* ImagePicker.swift in Sources */,
 				79186C1A24B8F0B80006183F /* EmptyModifier.swift in Sources */,
+				79C452C9255C9C1900A349AD /* CGSize+Extensions.swift in Sources */,
 				79186C2224B8F2030006183F /* HTMLLabel.swift in Sources */,
 				79186C1B24B8F0B80006183F /* FileManager+Extensions.swift in Sources */,
 				79581E70250AD43400D542CE /* Bundle+Extensions.swift in Sources */,
@@ -248,9 +258,11 @@
 				79186C2324B8F2030006183F /* WebView.swift in Sources */,
 				79EE02C424C239840044B16D /* Checkbox.swift in Sources */,
 				79186C0524B8EF450006183F /* LocationHelper.swift in Sources */,
+				79C45329255CCAF500A349AD /* URL+Extensions.swift in Sources */,
 				79186C0A24B8EF450006183F /* NotificationsHelper.swift in Sources */,
 				79186C0824B8EF450006183F /* DateHelper.swift in Sources */,
 				79186C0724B8EF450006183F /* LocationHelperDelegate.swift in Sources */,
+				79C452C6255C9BF900A349AD /* UIImage+Extensions.swift in Sources */,
 				79186C1D24B8F0B80006183F /* WMSTileOverlay.swift in Sources */,
 				79186C2424B8F2030006183F /* ActivityIndicator.swift in Sources */,
 				79186C1924B8F0B80006183F /* JSONDecoder+Extensions.swift in Sources */,
