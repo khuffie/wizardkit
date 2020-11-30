@@ -11,7 +11,7 @@ import SwiftUI
 
 extension Color {
 	public static let customOrange = Color("customOrange")
-	public static var main = Color("orange")
+	public static var main = Color("main")
 	
 	public static var widgetLightBG = Color.white
 	public static var widgetDarkBG = Color("backgroundColor")
@@ -33,7 +33,7 @@ extension Color {
 
 
 extension UIColor {
-	public static var main = UIColor(named: "orange")
+	public static var main = UIColor(named: "main")
 	public static let customOrange = UIColor(named: "customOrange")
 	public static let darkGreen = UIColor(named: "darkGreen")
 	public static let lightBlue = UIColor(named: "lightBlue")

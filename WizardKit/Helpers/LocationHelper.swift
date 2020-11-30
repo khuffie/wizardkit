@@ -77,7 +77,8 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 	}
 	
 	public func getUserLocation(completion: @escaping () -> Void) {
-		locationCompletionHandler = completion
+        print("WizardKit.LocationHelper.getUserLocation")
+        locationCompletionHandler = completion
 		locationManager.requestLocation()
 	}
 	

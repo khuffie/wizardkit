@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,7 +32,6 @@
 		79C45329255CCAF500A349AD /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C45328255CCAF500A349AD /* URL+Extensions.swift */; };
 		79D73E4C24DE0A940074A4E9 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D73E4B24DE0A940074A4E9 /* Calendar.swift */; };
 		79EE02C424C239840044B16D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE02C324C239840044B16D /* Checkbox.swift */; };
-		79F4871124BA4D0600FF1041 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = 79F4871024BA4D0600FF1041 /* SWXMLHash */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79F4871124BA4D0600FF1041 /* SWXMLHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +187,6 @@
 			);
 			name = WizardKit;
 			packageProductDependencies = (
-				79F4871024BA4D0600FF1041 /* SWXMLHash */,
 			);
 			productName = WizardKit;
 			productReference = 79186BE324B8E8E50006183F /* WizardKit.framework */;
@@ -219,7 +216,6 @@
 			);
 			mainGroup = 79186BD924B8E8E50006183F;
 			packageReferences = (
-				79F4870F24BA4D0600FF1041 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
 			);
 			productRefGroup = 79186BE424B8E8E50006183F /* Products */;
 			projectDirPath = "";
@@ -408,6 +404,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WizardKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -432,6 +429,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WizardKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,25 +465,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		79F4870F24BA4D0600FF1041 /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/drmohundro/SWXMLHash.git";
-			requirement = {
-				kind = exactVersion;
-				version = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		79F4871024BA4D0600FF1041 /* SWXMLHash */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79F4870F24BA4D0600FF1041 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
-			productName = SWXMLHash;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79186BDA24B8E8E50006183F /* Project object */;
 }
