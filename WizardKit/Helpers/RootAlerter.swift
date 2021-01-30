@@ -12,6 +12,7 @@ import UIKit
 public protocol RootAlerterDelegate {
 	
 	func showSettingsAlert()
+    func showAlert(with message:String)
 }
 
 public class RootAlerter {

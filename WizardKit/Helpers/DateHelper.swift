@@ -37,7 +37,12 @@ public class DateHelper: NSObject,  ObservableObject {
 	}()
 	
 
-	
+    public let simpleWithYear: DateFormatter = {
+       let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM d, YYYY"
+       return formatter
+    }()
+
 	public let short: DateFormatter = {
 	   let formatter = DateFormatter()
 		formatter.dateStyle = .short
@@ -161,7 +166,6 @@ public class DateHelper: NSObject,  ObservableObject {
 		return string
 	}
 
-	
 	public func today() -> Date {
 		Calendar.current.startOfDay(for: Date())
 	}
@@ -248,5 +252,16 @@ public class DateHelper: NSObject,  ObservableObject {
 		super.init()
 	}
 	
+}
+
+
+extension Date {
+    
+    public func string(with formatter: DateFormatter = DateHelper.shared.month) -> String {
+        
+        
+        return formatter.string(from: self)
+    }
+    
 }
 
