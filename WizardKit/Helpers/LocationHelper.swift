@@ -141,6 +141,7 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 				if (error != nil)
 				{
 					print("WizardKit.reverse geodcode fail: \(error!.localizedDescription)")
+                    return  
 				}
 				let pm = placemarks! as [CLPlacemark]
 
