@@ -122,6 +122,12 @@ public class DateHelper: NSObject,  ObservableObject {
 		formatter.dateFormat = "h"
 		return formatter
 	}()
+    
+    public let isoFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return formatter
+    }()
 
 
 	public let hourMinutes: DateFormatter = {
