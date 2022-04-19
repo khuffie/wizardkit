@@ -61,6 +61,14 @@ public class DateHelper: NSObject,  ObservableObject {
 		formatter.timeStyle = .short
 	   return formatter
 	}()
+    
+    public let dayWithTime: DateFormatter = {
+       let formatter = DateFormatter()
+        //formatter.timeZone = .current
+
+        formatter.dateFormat = "E h:mm a"
+        return formatter
+    }()
 
 	
 	public let fullDay: DateFormatter = {
@@ -125,11 +133,14 @@ public class DateHelper: NSObject,  ObservableObject {
     
     public let isoFormatter: DateFormatter = {
         let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         return formatter
     }()
 
 
+    
+    
 	public let hourMinutes: DateFormatter = {
 		let formatter = DateFormatter()
 		//formatter.timeZone = .current
