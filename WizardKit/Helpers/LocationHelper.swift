@@ -40,7 +40,7 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 		self.userLocation = locationManager.location
 		
 		
-		switch CLLocationManager.authorizationStatus() {
+		switch locationManager.authorizationStatus {
 		case .restricted, .denied, .notDetermined:
 			isLocationAvailable = false
 		case .authorizedWhenInUse, .authorizedAlways:
@@ -56,7 +56,7 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 		//print("LocationHelper.requestLocationPermission")
 		self.completion = completion
 		
-		switch CLLocationManager.authorizationStatus() {
+		switch locationManager.authorizationStatus {
 		case .restricted, .denied:
 			//let appDelegate = UIApplication.shared.delegate as! AppDelegate
 			//appDelegate.showLocationServicesAlert()
@@ -84,7 +84,7 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 	
 	public func checkIfLocationAvailable() -> Bool {
 		//print("WizardKit.LocationHelper.checkIfLocationAvailable \(CLLocationManager.authorizationStatus())")
-		switch CLLocationManager.authorizationStatus() {
+		switch locationManager.authorizationStatus {
 		case .restricted, .denied, .notDetermined:
 			return false
 		case .authorizedWhenInUse, .authorizedAlways:

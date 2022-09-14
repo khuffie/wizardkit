@@ -256,6 +256,7 @@ public class DateHelper: NSObject,  ObservableObject {
 		return sortedSymbols
 		
 	}
+    
 	
 	public func is24Hour() -> Bool {
 		let dateFormat = DateFormatter.dateFormat(fromTemplate: "j", options: 0, locale: Locale.current)!
