@@ -11,14 +11,19 @@ import CoreLocation
 import UIKit
 import Contacts
 
+
 public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDelegate{
 	
 	public static let shared = LocationHelper()
 
 	public var userLocation:CLLocation?
-	@Published public var userAddress:String = ""
-	
+    @Published public var userAddress:String = ""
+    @Published public var city:String? = ""
+    @Published public var neighbourhood:String? = ""
+    @Published public var country:String? = ""
+
 	public var locationManager:CLLocationManager = CLLocationManager()
+
 	@Published public var isLocationAvailable: Bool
 	
 	public var delegate: LocationHelperDelegate?
@@ -38,7 +43,14 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 		locationManager.delegate = self
 		locationManager.startMonitoringSignificantLocationChanges()
 		self.userLocation = locationManager.location
-		
+        
+        //fake the location
+       // self.userLocation = CLLocation(latitude: 64.68, longitude: -163.40)
+
+        
+        if self.userLocation != nil {
+            self.getAddress()
+        }
 		
 		switch locationManager.authorizationStatus {
 		case .restricted, .denied, .notDetermined:
@@ -80,7 +92,10 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
         print("WizardKit.LocationHelper.getUserLocation")
         locationCompletionHandler = completion
 		locationManager.requestLocation()
+        
 	}
+    
+
 	
 	public func checkIfLocationAvailable() -> Bool {
 		//print("WizardKit.LocationHelper.checkIfLocationAvailable \(CLLocationManager.authorizationStatus())")
@@ -110,44 +125,49 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 	public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		//print("WizardKit.LocationHelper.didUpdateLocations")
 		self.userLocation = locations.last
-		self.getAddress()
-		
-		if(locationCompletionHandler != nil) {
-			
-			let completion = self.locationCompletionHandler!
-			self.locationCompletionHandler = nil
-			DispatchQueue.main.async {
-				completion()
-			}
-			
-		}
-		
-//
-//		if let delegate = self.delegate {
-//			delegate.locationUpdated(location: self.userLocation!)
-//		}
-		//print(self.userLocation)
+        
+        //fake the location
+        //self.userLocation = CLLocation(latitude: 64.68, longitude: -163.40)
+        
+        self.getAddress()
+            
+
 	}
 	
 
+    public func handleLocationUpdateCompletion() {
+        if(locationCompletionHandler != nil) {
+            
+            let completion = self.locationCompletionHandler!
+            self.locationCompletionHandler = nil
+            DispatchQueue.main.async {
+                completion()
+            }
+            
+        }
 
-	public func getAddress() {
+    }
+
+	public func getAddress()  {
 		//userAddress = ""
 		
-		let ceo: CLGeocoder = CLGeocoder()
+        let ceo: CLGeocoder = CLGeocoder()
+
+
 
 		ceo.reverseGeocodeLocation(self.userLocation!, completionHandler:
 			{(placemarks, error) in
 				if (error != nil)
 				{
 					print("WizardKit.reverse geodcode fail: \(error!.localizedDescription)")
+                    self.handleLocationUpdateCompletion()
                     return  
 				}
 				let pm = placemarks! as [CLPlacemark]
 
 				if pm.count > 0 {
 					let pm = placemarks![0]
-					
+                    
 //					print(pm.country)
 //					print(pm.locality)
 //					print(pm.subLocality)
@@ -157,9 +177,14 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 //					print(pm.postalAddress!.street)
 					
 					self.userAddress = pm.postalAddress!.street
+                    self.city = pm.locality
+                    self.neighbourhood = pm.subLocality
+                    self.country = pm.country
+                    self.handleLocationUpdateCompletion()
 
 			  }
 		})
+    
 
 	}
 
