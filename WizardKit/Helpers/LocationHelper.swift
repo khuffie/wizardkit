@@ -149,7 +149,7 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
     }
 
 	public func getAddress()  {
-		//userAddress = ""
+		print("LocationHelper.getAddress")
 		
         let ceo: CLGeocoder = CLGeocoder()
 
