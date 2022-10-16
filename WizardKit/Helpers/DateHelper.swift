@@ -35,6 +35,13 @@ public class DateHelper: NSObject,  ObservableObject {
 		formatter.dateFormat = "EEE',' MMM d"
 	   return formatter
 	}()
+    
+    public let extraShort: DateFormatter = {
+       let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d"
+       return formatter
+    }()
+
 	
 
     public let simpleWithYear: DateFormatter = {
@@ -171,10 +178,23 @@ public class DateHelper: NSObject,  ObservableObject {
 			return simple.string(from: date )
 		}
 		
-		
 	}
 	
+    //extra short date, for mini eidgets
+    public func extraShortDateDisplay(for date: Date) -> String {
+        
+        if Calendar.current.isDateInToday(date) {
+            return "Today"
+        } else if Calendar.current.isDateInTomorrow(date) {
+            return "Tom"
+        } else {
+            return extraShort.string(from: date )
+        }
+        
+        
+    }
 
+    
 	public func timeNoAMPM(from date:Date) -> String {
 		var string = DateHelper.shared.hourMinutes.string(from: date )
 		string = string.replacingOccurrences(of: " AM", with: "")
