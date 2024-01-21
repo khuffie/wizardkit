@@ -137,12 +137,16 @@ extension Color {
 	
 	//@available(*, deprecated, message: "This is fragile and likely to break at some point. Hopefully it won't be required for long.")
 	public  var uiColor: UIColor {
-		do {
-			return try convertToUIColor()
-		} catch let error {
-			assertionFailure((error as! ColorConversionError).reason)
-			return .black
-		}
+        //replacing the function from stack overflow with an iOS 14 introduced value
+        return UIColor(self)
+        
+        
+//		do {
+//			return try UIColor(self)
+//		} catch let error {
+//			assertionFailure((error as! ColorConversionError).reason)
+//			return .black
+//		}
 	}
 }
 
@@ -195,7 +199,7 @@ fileprivate struct OpacityColor {
 		let matches = internalTypeRegex.matches(in: dumpStr, options: [], range: NSRange(dumpStr.startIndex..<dumpStr.endIndex, in: dumpStr))
 		guard let match = matches.first, matches.count == 1, match.numberOfRanges == 2 else {
 			throw ColorConversionError(reason: "Could not parse internalType from \"\(dumpStr)\"")
-			try! self.init(color: Color.black.opacity(1))
+			//try! self.init(color: Color.black.opacity(1))
 		}
 		
 		self.init(
