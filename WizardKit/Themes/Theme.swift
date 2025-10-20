@@ -95,7 +95,7 @@ public class Theme: ObservableObject {
 ////        UITableView.appearance().separatorStyle = .none
         UITableView.appearance().separatorColor = UIColor(Color.themeAccent)
 
-        UITableView.appearance().backgroundColor = UIColor(Color.backgroundColor)
+        UITableView.appearance().backgroundColor = UIColor(Color.pink)
 
         //UITableViewCell.appearance().backgroundColor = UIColor(Color.themeBackground)
 
@@ -115,14 +115,8 @@ public class Theme: ObservableObject {
 //        UINavigationBar.appearance().scrollEdgeAppearance = appearance
         
 
-
-        
-//        // this is not the same as manipulating the proxy directly
-//        let appearance = UINavigationBarAppearance()
-//
         // this overrides everything you have set up earlier.
-        //appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor(Color.themeBackground)
+        appearance.configureWithTransparentBackground()
 
         // this only applies to big titles
         appearance.largeTitleTextAttributes = [

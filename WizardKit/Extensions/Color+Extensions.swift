@@ -12,6 +12,7 @@ import SwiftUI
 extension Color {
 	public static let customOrange = Color("customOrange")
 	public static var main = Color("main")
+    public static var circleBorder = Color("circleBorder")
 	
 	public static var widgetLightBG = Color.white
 	public static var widgetDarkBG = Color("backgroundColor")
