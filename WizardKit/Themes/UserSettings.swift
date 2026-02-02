@@ -23,3 +23,4 @@ public class UserSettings: NSObject,  ObservableObject {
     //public static let shared = UserSettings()
     public static var shared = DefaultsAdapter<DefaultsKeys>(defaults: UserDefaults(suiteName: "group.com.khuffie.widget.wizard")!, keyStore: .init())
 }
+

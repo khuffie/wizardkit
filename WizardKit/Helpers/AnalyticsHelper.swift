@@ -26,7 +26,7 @@ public class AnalyticsHelper {
         Analytics.logEvent(event, parameters: parameters)
     }
     
-    func updateUserProperties() {
+    public func updateUserProperties() {
         //print("################################### UPDATE USER PROPERTIES AAAAH ######")
         //print ( UserSettings.permissions.pro.description)
         

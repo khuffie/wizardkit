@@ -21,7 +21,7 @@ public struct MainTextHeaderView: View {
             Text(text)
                 .foregroundColor(.themeAccent)
                 //.headerFontWeight()
-                .font(.title2)
+                .font(.headline)
             Spacer()
 
         }

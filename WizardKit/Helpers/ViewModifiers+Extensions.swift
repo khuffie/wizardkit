@@ -7,9 +7,8 @@
 
 import Foundation
 import SwiftUI
-import WizardKit
 
-
+/*
 
 extension Text {
 	
@@ -341,3 +340,5 @@ extension View {
 	}
   }
 }
+
+*/

@@ -37,6 +37,7 @@
 		79AD3A682EA544DD00C22746 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79AD3A672EA544DD00C22746 /* FirebaseCrashlytics */; };
 		79AD3A6A2EA544DD00C22746 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 79AD3A692EA544DD00C22746 /* FirebaseRemoteConfig */; };
 		79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */; };
+		79AD3A7C2EA8474800C22746 /* ViewModifiers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A7B2EA8474800C22746 /* ViewModifiers+Extensions.swift */; };
 		79B0279229BE584F00CBEBF4 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B0279129BE584F00CBEBF4 /* Color+Extension.swift */; };
 		79C452C6255C9BF900A349AD /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C452C5255C9BF900A349AD /* UIImage+Extensions.swift */; };
 		79C452C9255C9C1900A349AD /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C452C8255C9C1900A349AD /* CGSize+Extensions.swift */; };
@@ -75,6 +76,7 @@
 		79AD3A5E2EA5349500C22746 /* ThemeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsView.swift; sourceTree = "<group>"; };
 		79AD3A602EA5359D00C22746 /* MainTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextHeaderView.swift; sourceTree = "<group>"; };
 		79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
+		79AD3A7B2EA8474800C22746 /* ViewModifiers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModifiers+Extensions.swift"; sourceTree = "<group>"; };
 		79B0279129BE584F00CBEBF4 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		79C452C5255C9BF900A349AD /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		79C452C8255C9C1900A349AD /* CGSize+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Extensions.swift"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		79186BFE24B8EF300006183F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				79AD3A7B2EA8474800C22746 /* ViewModifiers+Extensions.swift */,
 				79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */,
 				79B0279129BE584F00CBEBF4 /* Color+Extension.swift */,
 				79186BFF24B8EF440006183F /* LocationHelper.swift */,
@@ -301,6 +304,7 @@
 				79186C0524B8EF450006183F /* LocationHelper.swift in Sources */,
 				79C45329255CCAF500A349AD /* URL+Extensions.swift in Sources */,
 				79186C0A24B8EF450006183F /* NotificationsHelper.swift in Sources */,
+				79AD3A7C2EA8474800C22746 /* ViewModifiers+Extensions.swift in Sources */,
 				79186C0824B8EF450006183F /* DateHelper.swift in Sources */,
 				79186C0724B8EF450006183F /* LocationHelperDelegate.swift in Sources */,
 				79C452C6255C9BF900A349AD /* UIImage+Extensions.swift in Sources */,
@@ -374,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -433,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
