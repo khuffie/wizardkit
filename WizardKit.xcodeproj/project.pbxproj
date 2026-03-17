@@ -28,11 +28,6 @@
 		79581E70250AD43400D542CE /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79581E6F250AD43400D542CE /* Bundle+Extensions.swift */; };
 		7979538224C0F4F3005F877A /* SheetButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7979538124C0F4F3005F877A /* SheetButtons.swift */; };
 		7982442A25B12EF7009F6D8B /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7982442925B12EF7009F6D8B /* EmailHelper.swift */; };
-		79AD3A582EA5323E00C22746 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A572EA5323E00C22746 /* Theme.swift */; };
-		79AD3A5A2EA5326D00C22746 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A592EA5325D00C22746 /* UserSettings.swift */; };
-		79AD3A5D2EA532CE00C22746 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 79AD3A5C2EA532CE00C22746 /* SwiftyUserDefaults */; };
-		79AD3A5F2EA5349A00C22746 /* ThemeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A5E2EA5349500C22746 /* ThemeSettingsView.swift */; };
-		79AD3A612EA535A100C22746 /* MainTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A602EA5359D00C22746 /* MainTextHeaderView.swift */; };
 		79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */; };
 		79AD3A7C2EA8474800C22746 /* ViewModifiers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A7B2EA8474800C22746 /* ViewModifiers+Extensions.swift */; };
 		79B0279229BE584F00CBEBF4 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B0279129BE584F00CBEBF4 /* Color+Extension.swift */; };
@@ -68,10 +63,6 @@
 		7979538124C0F4F3005F877A /* SheetButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetButtons.swift; sourceTree = "<group>"; };
 		7982442925B12EF7009F6D8B /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		79920B0424BCF52E00FC91F0 /* ViewModifier+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewModifier+Extensions.swift"; sourceTree = "<group>"; };
-		79AD3A572EA5323E00C22746 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		79AD3A592EA5325D00C22746 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
-		79AD3A5E2EA5349500C22746 /* ThemeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsView.swift; sourceTree = "<group>"; };
-		79AD3A602EA5359D00C22746 /* MainTextHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextHeaderView.swift; sourceTree = "<group>"; };
 		79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		79AD3A7B2EA8474800C22746 /* ViewModifiers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModifiers+Extensions.swift"; sourceTree = "<group>"; };
 		79B0279129BE584F00CBEBF4 /* Color+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -87,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79AD3A5D2EA532CE00C22746 /* SwiftyUserDefaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +111,6 @@
 		79186BE524B8E8E50006183F /* WizardKit */ = {
 			isa = PBXGroup;
 			children = (
-				79AD3A562EA5323800C22746 /* Themes */,
 				79186C1E24B8F1EE0006183F /* View Wrappers */,
 				79186C0F24B8F0AA0006183F /* Extensions */,
 				79186BFE24B8EF300006183F /* Helpers */,
@@ -181,17 +170,6 @@
 			path = "View Wrappers";
 			sourceTree = "<group>";
 		};
-		79AD3A562EA5323800C22746 /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-				79AD3A602EA5359D00C22746 /* MainTextHeaderView.swift */,
-				79AD3A5E2EA5349500C22746 /* ThemeSettingsView.swift */,
-				79AD3A592EA5325D00C22746 /* UserSettings.swift */,
-				79AD3A572EA5323E00C22746 /* Theme.swift */,
-			);
-			path = Themes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -221,7 +199,6 @@
 			);
 			name = WizardKit;
 			packageProductDependencies = (
-				79AD3A5C2EA532CE00C22746 /* SwiftyUserDefaults */,
 			);
 			productName = WizardKit;
 			productReference = 79186BE324B8E8E50006183F /* WizardKit.framework */;
@@ -252,7 +229,6 @@
 			);
 			mainGroup = 79186BD924B8E8E50006183F;
 			packageReferences = (
-				79AD3A5B2EA532CE00C22746 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 			);
 			productRefGroup = 79186BE424B8E8E50006183F /* Products */;
 			projectDirPath = "";
@@ -278,13 +254,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79AD3A582EA5323E00C22746 /* Theme.swift in Sources */,
 				79186C0924B8EF450006183F /* WizardHelper.swift in Sources */,
 				7979538224C0F4F3005F877A /* SheetButtons.swift in Sources */,
 				79186C1824B8F0B80006183F /* Date+Extensions.swift in Sources */,
 				790085CB252E153A00C53D9F /* ImagePicker.swift in Sources */,
 				79186C1A24B8F0B80006183F /* EmptyModifier.swift in Sources */,
-				79AD3A612EA535A100C22746 /* MainTextHeaderView.swift in Sources */,
 				79C452C9255C9C1900A349AD /* CGSize+Extensions.swift in Sources */,
 				79186C2224B8F2030006183F /* HTMLLabel.swift in Sources */,
 				79186C1B24B8F0B80006183F /* FileManager+Extensions.swift in Sources */,
@@ -306,8 +280,6 @@
 				79186C1C24B8F0B80006183F /* Color+Extensions.swift in Sources */,
 				79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */,
 				79D73E4C24DE0A940074A4E9 /* Calendar.swift in Sources */,
-				79AD3A5A2EA5326D00C22746 /* UserSettings.swift in Sources */,
-				79AD3A5F2EA5349A00C22746 /* ThemeSettingsView.swift in Sources */,
 				7982442A25B12EF7009F6D8B /* EmailHelper.swift in Sources */,
 				79B0279229BE584F00CBEBF4 /* Color+Extension.swift in Sources */,
 			);
@@ -524,25 +496,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		79AD3A5B2EA532CE00C22746 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.3.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		79AD3A5C2EA532CE00C22746 /* SwiftyUserDefaults */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79AD3A5B2EA532CE00C22746 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
-			productName = SwiftyUserDefaults;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79186BDA24B8E8E50006183F /* Project object */;
 }
