@@ -5,7 +5,7 @@
 //  Created by Ahmed El-Khuffash on 2025-10-19.
 //  Copyright © 2025 Ahmed El-Khuffash. All rights reserved.
 //
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 public class AnalyticsHelper {
     
@@ -15,15 +15,18 @@ public class AnalyticsHelper {
     
     public func trackPageView(_ page:String, section:String) {
         
+        /*
+         Firebase method, commented out
         Analytics.logEvent(AnalyticsEventScreenView,
                            parameters: [AnalyticsParameterScreenName: page,
                                         AnalyticsParameterScreenClass: section])
+         */
     }
     
     
     public func trackEvent(event: String, parameters: [String: Any]) {
         
-        Analytics.logEvent(event, parameters: parameters)
+       // Analytics.logEvent(event, parameters: parameters)
     }
     
     public func updateUserProperties() {

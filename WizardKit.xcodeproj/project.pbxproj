@@ -33,9 +33,6 @@
 		79AD3A5D2EA532CE00C22746 /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 79AD3A5C2EA532CE00C22746 /* SwiftyUserDefaults */; };
 		79AD3A5F2EA5349A00C22746 /* ThemeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A5E2EA5349500C22746 /* ThemeSettingsView.swift */; };
 		79AD3A612EA535A100C22746 /* MainTextHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A602EA5359D00C22746 /* MainTextHeaderView.swift */; };
-		79AD3A662EA544DD00C22746 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79AD3A652EA544DD00C22746 /* FirebaseAnalytics */; };
-		79AD3A682EA544DD00C22746 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 79AD3A672EA544DD00C22746 /* FirebaseCrashlytics */; };
-		79AD3A6A2EA544DD00C22746 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 79AD3A692EA544DD00C22746 /* FirebaseRemoteConfig */; };
 		79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */; };
 		79AD3A7C2EA8474800C22746 /* ViewModifiers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A7B2EA8474800C22746 /* ViewModifiers+Extensions.swift */; };
 		79B0279229BE584F00CBEBF4 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B0279129BE584F00CBEBF4 /* Color+Extension.swift */; };
@@ -90,10 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79AD3A682EA544DD00C22746 /* FirebaseCrashlytics in Frameworks */,
-				79AD3A662EA544DD00C22746 /* FirebaseAnalytics in Frameworks */,
 				79AD3A5D2EA532CE00C22746 /* SwiftyUserDefaults in Frameworks */,
-				79AD3A6A2EA544DD00C22746 /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,9 +222,6 @@
 			name = WizardKit;
 			packageProductDependencies = (
 				79AD3A5C2EA532CE00C22746 /* SwiftyUserDefaults */,
-				79AD3A652EA544DD00C22746 /* FirebaseAnalytics */,
-				79AD3A672EA544DD00C22746 /* FirebaseCrashlytics */,
-				79AD3A692EA544DD00C22746 /* FirebaseRemoteConfig */,
 			);
 			productName = WizardKit;
 			productReference = 79186BE324B8E8E50006183F /* WizardKit.framework */;
@@ -262,7 +253,6 @@
 			mainGroup = 79186BD924B8E8E50006183F;
 			packageReferences = (
 				79AD3A5B2EA532CE00C22746 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
-				79AD3A642EA544DD00C22746 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 79186BE424B8E8E50006183F /* Products */;
 			projectDirPath = "";
@@ -544,14 +534,6 @@
 				minimumVersion = 5.3.0;
 			};
 		};
-		79AD3A642EA544DD00C22746 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.4.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -559,21 +541,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 79AD3A5B2EA532CE00C22746 /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
 			productName = SwiftyUserDefaults;
-		};
-		79AD3A652EA544DD00C22746 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79AD3A642EA544DD00C22746 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		79AD3A672EA544DD00C22746 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79AD3A642EA544DD00C22746 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		79AD3A692EA544DD00C22746 /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 79AD3A642EA544DD00C22746 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

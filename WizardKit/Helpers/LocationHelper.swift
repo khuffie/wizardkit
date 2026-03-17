@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 import UIKit
-import Contacts
+import MapKit
 
 
 public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDelegate{
@@ -150,41 +150,25 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 
 	public func getAddress()  {
 		print("LocationHelper.getAddress")
-		
-        let ceo: CLGeocoder = CLGeocoder()
 
-
-
-		ceo.reverseGeocodeLocation(self.userLocation!, completionHandler:
-			{(placemarks, error) in
-				if (error != nil)
-				{
-					print("WizardKit.reverse geodcode fail: \(error!.localizedDescription)")
-                    self.handleLocationUpdateCompletion()
-                    return  
-				}
-				let pm = placemarks! as [CLPlacemark]
-
-				if pm.count > 0 {
-					let pm = placemarks![0]
-                    
-//					print(pm.country)
-//					print(pm.locality)
-//					print(pm.subLocality)
-//					print(pm.thoroughfare)
-//					print(pm.postalCode)
-//					print(pm.subThoroughfare)
-//					print(pm.postalAddress!.street)
-					
-					self.userAddress = pm.postalAddress!.street
-                    self.city = pm.locality
-                    self.neighbourhood = pm.subLocality
-                    self.country = pm.country
-                    self.handleLocationUpdateCompletion()
-
-			  }
-		})
-    
+		guard let request = MKReverseGeocodingRequest(location: self.userLocation!) else {
+			self.handleLocationUpdateCompletion()
+			return
+		}
+		request.getMapItems { mapItems, error in
+			if let error = error {
+				print("WizardKit.reverse geodcode fail: \(error.localizedDescription)")
+				self.handleLocationUpdateCompletion()
+				return
+			}
+			if let mapItem = mapItems?.first {
+				self.userAddress = mapItem.address?.shortAddress ?? ""
+				self.city = mapItem.addressRepresentations?.cityName
+				self.neighbourhood = mapItem.name
+				self.country = mapItem.addressRepresentations?.regionName
+				self.handleLocationUpdateCompletion()
+			}
+		}
 
 	}
 
