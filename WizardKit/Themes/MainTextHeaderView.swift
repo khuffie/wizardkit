@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+/*
 public struct MainTextHeaderView: View {
     
     var text:String
@@ -28,4 +28,4 @@ public struct MainTextHeaderView: View {
     }
 }
 
-
+*/

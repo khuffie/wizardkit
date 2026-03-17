@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+/*
 public struct ThemeSettingsView: View {
     
     @StateObject var theme = Theme.shared
@@ -192,3 +192,4 @@ public struct ThemeSettingsView: View {
     }
 }
 
+*/

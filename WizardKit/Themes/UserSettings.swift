@@ -7,7 +7,7 @@
 //
 
 import SwiftyUserDefaults
-
+/*
 extension DefaultsKeys {
     
     // MARK: GENERAL SETTINGS
@@ -21,6 +21,7 @@ extension DefaultsKeys {
 
 public class UserSettings: NSObject,  ObservableObject {
     //public static let shared = UserSettings()
-    public static var shared = DefaultsAdapter<DefaultsKeys>(defaults: UserDefaults(suiteName: "group.com.khuffie.widget.wizard")!, keyStore: .init())
+//    public static var shared = DefaultsAdapter<DefaultsKeys>(defaults: UserDefaults(suiteName: "group.com.khuffie.widget.wizard")!, keyStore: .init())
 }
 
+*/

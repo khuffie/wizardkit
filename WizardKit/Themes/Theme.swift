@@ -16,7 +16,7 @@ import Foundation
 import SwiftUI
 
 
-
+/*
 public class Theme: ObservableObject {
     
     public static var shared:Theme = Theme()
@@ -214,3 +214,4 @@ extension Color {
     public static var themeSecondary:Color = Color.secondary
     public static var themeBackground:Color = Color.backgroundColor
 }
+*/
