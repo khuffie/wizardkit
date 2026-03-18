@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 public struct Checkbox: View {
 	
 	
@@ -26,6 +27,7 @@ public struct Checkbox: View {
 	
 
 	public var body: some View {
+        
 		Button(action: {
 			self.isChecked.toggle()
 			self.callback(self.id, self.isChecked)
@@ -38,3 +40,5 @@ public struct Checkbox: View {
 	
 
 }
+
+

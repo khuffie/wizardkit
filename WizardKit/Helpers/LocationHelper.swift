@@ -26,8 +26,6 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 
 	@Published public var isLocationAvailable: Bool
 	
-	public var delegate: LocationHelperDelegate?
-	
 	public var locationCompletionHandler: (() -> Void)?
 	
 	
@@ -70,9 +68,7 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 		
 		switch locationManager.authorizationStatus {
 		case .restricted, .denied:
-			//let appDelegate = UIApplication.shared.delegate as! AppDelegate
-			//appDelegate.showLocationServicesAlert()
-			RootAlerter.shared.showLocationServicesAlert()
+			UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
 			return
 		case .notDetermined:
 			self.locationManager.requestAlwaysAuthorization()
