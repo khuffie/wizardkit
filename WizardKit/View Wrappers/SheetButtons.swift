@@ -12,14 +12,8 @@ public struct SheetXButton: View {
 	
 	@Binding public var isPresented: Bool
 	
-    public var buttonColor:Color = .main
-    
-    public init(isPresented: Binding<Bool>, color: Color? = nil ) {
+	public init(isPresented: Binding<Bool>) {
 		_isPresented = isPresented
-        
-        if color != nil {
-            buttonColor = color!
-        }
 	}
 	
 	public var body: some View {
@@ -30,7 +24,7 @@ public struct SheetXButton: View {
 				self.isPresented = false
 			}) {
 				Image(systemName: "xmark.circle.fill")
-					.foregroundColor(buttonColor)
+					.foregroundStyle(.tint)
 			}
 		}
 
