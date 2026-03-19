@@ -40,16 +40,27 @@ public enum Theme {
     }
 
     public static let swatches: [Swatch] = [
-        Swatch(id: "blaze",    name: "Blaze Orange", hex: "FB4D00"),
-        Swatch(id: "crimson",  name: "Crimson",      hex: "E63946"),
-        Swatch(id: "amber",    name: "Amber",        hex: "F77F00"),
-        Swatch(id: "emerald",  name: "Emerald",      hex: "2DC653"),
-        Swatch(id: "ocean",    name: "Ocean Blue",   hex: "0096C7"),
-        Swatch(id: "violet",   name: "Violet",       hex: "7B2FBE"),
-        Swatch(id: "magenta",  name: "Magenta",      hex: "E040FB"),
-        Swatch(id: "cyan",     name: "Cyan",         hex: "00B4D8"),
-        Swatch(id: "coral",    name: "Coral",        hex: "FF6B6B"),
-        Swatch(id: "indigo",   name: "Indigo",       hex: "6C63FF"),
+        // Reds
+        Swatch(id: "crimson",  name: "Crimson",       hex: "E63946"),
+        Swatch(id: "coral",    name: "Coral",         hex: "FF6B6B"),
+        // Oranges
+        Swatch(id: "blaze",    name: "Blaze Orange",  hex: "FB4D00"),
+        Swatch(id: "amber",    name: "Amber",         hex: "F77F00"),
+        // Yellows
+        Swatch(id: "golden",   name: "Golden",        hex: "FFAB00"),
+        Swatch(id: "sunflower",name: "Sunflower",     hex: "FFD600"),
+        // Greens
+        Swatch(id: "forest",   name: "Forest",        hex: "2D6A4F"),
+        Swatch(id: "emerald",  name: "Emerald",       hex: "2DC653"),
+        Swatch(id: "lime",     name: "Lime",          hex: "7CB518"),
+        Swatch(id: "mint",     name: "Mint",          hex: "52B788"),
+        // Blues
+        Swatch(id: "ocean",    name: "Ocean Blue",    hex: "0096C7"),
+        Swatch(id: "cyan",     name: "Cyan",          hex: "00B4D8"),
+        Swatch(id: "indigo",   name: "Indigo",        hex: "6C63FF"),
+        // Purples / Pinks
+        Swatch(id: "violet",   name: "Violet",        hex: "7B2FBE"),
+        Swatch(id: "magenta",  name: "Magenta",       hex: "E040FB"),
     ]
 }
 
