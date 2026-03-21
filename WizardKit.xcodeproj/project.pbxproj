@@ -18,6 +18,9 @@
 		796E242E2F6B191100CB8CA6 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E242D2F6B191100CB8CA6 /* Calendar.swift */; };
 		796E24342F6B403000CB8CA6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E24332F6B403000CB8CA6 /* Theme.swift */; };
 		7982442A25B12EF7009F6D8B /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7982442925B12EF7009F6D8B /* EmailHelper.swift */; };
+		79A45F612F6ECE7D0035BDCE /* SettingsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A45F602F6ECE7D0035BDCE /* SettingsComponents.swift */; };
+		79A45F642F6ED1660035BDCE /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 79A45F632F6ED1660035BDCE /* Defaults */; };
+		79A45F662F6ED1660035BDCE /* DefaultsMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 79A45F652F6ED1660035BDCE /* DefaultsMacros */; };
 		79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */; };
 		79EE02C424C239840044B16D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE02C324C239840044B16D /* Checkbox.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,7 @@
 		796E242D2F6B191100CB8CA6 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		796E24332F6B403000CB8CA6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7982442925B12EF7009F6D8B /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
+		79A45F602F6ECE7D0035BDCE /* SettingsComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponents.swift; sourceTree = "<group>"; };
 		79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		79EE02C324C239840044B16D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A45F642F6ED1660035BDCE /* Defaults in Frameworks */,
+				79A45F662F6ED1660035BDCE /* DefaultsMacros in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,7 @@
 		79186BE524B8E8E50006183F /* WizardKit */ = {
 			isa = PBXGroup;
 			children = (
+				79A45F5F2F6ECE4F0035BDCE /* User Settings */,
 				79186C1E24B8F1EE0006183F /* View Wrappers */,
 				79186C0F24B8F0AA0006183F /* Extensions */,
 				79186BFE24B8EF300006183F /* Helpers */,
@@ -95,7 +102,6 @@
 				79186C0224B8EF440006183F /* DateHelper.swift */,
 				79186C0324B8EF440006183F /* WizardHelper.swift */,
 				7982442925B12EF7009F6D8B /* EmailHelper.swift */,
-				796E24332F6B403000CB8CA6 /* Theme.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -118,6 +124,15 @@
 				79EE02C324C239840044B16D /* Checkbox.swift */,
 			);
 			path = "View Wrappers";
+			sourceTree = "<group>";
+		};
+		79A45F5F2F6ECE4F0035BDCE /* User Settings */ = {
+			isa = PBXGroup;
+			children = (
+				79A45F602F6ECE7D0035BDCE /* SettingsComponents.swift */,
+				796E24332F6B403000CB8CA6 /* Theme.swift */,
+			);
+			path = "User Settings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +164,8 @@
 			);
 			name = WizardKit;
 			packageProductDependencies = (
+				79A45F632F6ED1660035BDCE /* Defaults */,
+				79A45F652F6ED1660035BDCE /* DefaultsMacros */,
 			);
 			productName = WizardKit;
 			productReference = 79186BE324B8E8E50006183F /* WizardKit.framework */;
@@ -179,6 +196,7 @@
 			);
 			mainGroup = 79186BD924B8E8E50006183F;
 			packageReferences = (
+				79A45F622F6ED1660035BDCE /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			productRefGroup = 79186BE424B8E8E50006183F /* Products */;
 			projectDirPath = "";
@@ -214,6 +232,7 @@
 				79186C0824B8EF450006183F /* DateHelper.swift in Sources */,
 				79186C1924B8F0B80006183F /* JSONDecoder+Extensions.swift in Sources */,
 				79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */,
+				79A45F612F6ECE7D0035BDCE /* SettingsComponents.swift in Sources */,
 				7982442A25B12EF7009F6D8B /* EmailHelper.swift in Sources */,
 				796E242E2F6B191100CB8CA6 /* Calendar.swift in Sources */,
 			);
@@ -430,6 +449,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		79A45F622F6ED1660035BDCE /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		79A45F632F6ED1660035BDCE /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79A45F622F6ED1660035BDCE /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+		79A45F652F6ED1660035BDCE /* DefaultsMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 79A45F622F6ED1660035BDCE /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = DefaultsMacros;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 79186BDA24B8E8E50006183F /* Project object */;
 }
