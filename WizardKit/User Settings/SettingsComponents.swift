@@ -13,6 +13,7 @@ public struct SettingsSection<Content: View>: View {
     let icon: String
     let title: String
     @ViewBuilder let content: Content
+    @State private var isExpanded: Bool = true
 
     public init(icon: String, title: String, @ViewBuilder content: () -> Content) {
         self.icon = icon
@@ -21,7 +22,7 @@ public struct SettingsSection<Content: View>: View {
     }
 
     public var body: some View {
-        DisclosureGroup {
+        DisclosureGroup(isExpanded: $isExpanded) {
             VStack(spacing: 0) {
                 content
             }
@@ -32,7 +33,7 @@ public struct SettingsSection<Content: View>: View {
                 .foregroundStyle(.tint)
         }
         .padding([.leading, .trailing])
-        .padding(.vertical, 4)
+        .padding(.vertical, 12)
     }
 }
 

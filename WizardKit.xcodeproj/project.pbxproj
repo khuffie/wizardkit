@@ -21,6 +21,7 @@
 		79A45F612F6ECE7D0035BDCE /* SettingsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A45F602F6ECE7D0035BDCE /* SettingsComponents.swift */; };
 		79A45F642F6ED1660035BDCE /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 79A45F632F6ED1660035BDCE /* Defaults */; };
 		79A45F662F6ED1660035BDCE /* DefaultsMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 79A45F652F6ED1660035BDCE /* DefaultsMacros */; };
+		79A45F682F6ED2370035BDCE /* WizardSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A45F672F6ED2370035BDCE /* WizardSettings.swift */; };
 		79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */; };
 		79EE02C424C239840044B16D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE02C324C239840044B16D /* Checkbox.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		796E24332F6B403000CB8CA6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7982442925B12EF7009F6D8B /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		79A45F602F6ECE7D0035BDCE /* SettingsComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponents.swift; sourceTree = "<group>"; };
+		79A45F672F6ED2370035BDCE /* WizardSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardSettings.swift; sourceTree = "<group>"; };
 		79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		79EE02C324C239840044B16D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 			children = (
 				79A45F602F6ECE7D0035BDCE /* SettingsComponents.swift */,
 				796E24332F6B403000CB8CA6 /* Theme.swift */,
+				79A45F672F6ED2370035BDCE /* WizardSettings.swift */,
 			);
 			path = "User Settings";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				79A45F612F6ECE7D0035BDCE /* SettingsComponents.swift in Sources */,
 				7982442A25B12EF7009F6D8B /* EmailHelper.swift in Sources */,
 				796E242E2F6B191100CB8CA6 /* Calendar.swift in Sources */,
+				79A45F682F6ED2370035BDCE /* WizardSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
