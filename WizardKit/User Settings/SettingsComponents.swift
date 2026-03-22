@@ -30,7 +30,8 @@ public struct SettingsSection<Content: View>: View {
             .padding(.top, 16)
         } label: {
             Label(title, systemImage: icon)
-                .font(.headline)
+                .font(.title3)
+                .fontWeight(.semibold)
                 .foregroundStyle(.tint)
         }
         .padding([.leading, .trailing])

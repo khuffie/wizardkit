@@ -18,8 +18,6 @@ public enum WizardApp: String, CaseIterable {
 /// Reusable About disclosure group for settings screens.
 /// Displays subreddit link, builder credit, app icons, and icons8 attribution.
 public struct AboutSection: View {
-    @State private var isExpanded: Bool = true
-
     private let currentApp: WizardApp
     private let bundle = Bundle(for: PhotoKitHelper.self)
 
@@ -47,52 +45,43 @@ public struct AboutSection: View {
     }
 
     public var body: some View {
-        DisclosureGroup(isExpanded: $isExpanded) {
-            VStack(spacing: 0) {
-                // Reddit
-                Link(destination: URL(string: "https://www.reddit.com/r/appwizard/")!) {
-                    row(icon: "reddit", title: "App Wizard Subreddit", showChevron: true)
-                }
+        SettingsSection(icon: "info.circle", title: "About") {
+            // Reddit
+            Link(destination: URL(string: "https://www.reddit.com/r/appwizard/")!) {
+                row(icon: "reddit", title: "App Wizard Subreddit", showChevron: true)
+            }
 
-                // Built by
-                row(icon: "app-symbol", title: "Built by Ahmed El-Khuffash", showChevron: false)
+            // Built by
+            row(icon: "app-symbol", title: "Built by Ahmed El-Khuffash", showChevron: false)
 
-                // App icons — sized to fit in one row
-                HStack(alignment: .top, spacing: 12) {
-                    ForEach(visibleApps, id: \.name) { appLink in
-                        Link(destination: URL(string: appLink.url)!) {
-                            VStack(spacing: 6) {
-                                Image(appLink.icon, bundle: bundle)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+            // App icons — sized to fit in one row
+            HStack(alignment: .top, spacing: 12) {
+                ForEach(visibleApps, id: \.name) { appLink in
+                    Link(destination: URL(string: appLink.url)!) {
+                        VStack(spacing: 6) {
+                            Image(appLink.icon, bundle: bundle)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
 
-                                Text(appLink.name)
-                                    .font(.caption2)
-                                    .foregroundStyle(.secondary)
-                                    .lineLimit(2)
-                                    .multilineTextAlignment(.center)
-                            }
+                            Text(appLink.name)
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.center)
                         }
-                        .frame(maxWidth: .infinity)
                     }
-                }
-                .padding(.horizontal)
-                .padding(.vertical, 10)
-
-                // Icons8
-                Link(destination: URL(string: "https://icons8.com/")!) {
-                    row(icon: "icons8", title: "Some icons by Icons8", showChevron: true)
+                    .frame(maxWidth: .infinity)
                 }
             }
-            .padding(.top, 16)
-        } label: {
-            Label("About", systemImage: "info.circle")
-                .font(.headline)
-                .foregroundStyle(.tint)
+            .padding(.horizontal)
+            .padding(.vertical, 10)
+
+            // Icons8
+            Link(destination: URL(string: "https://icons8.com/")!) {
+                row(icon: "icons8", title: "Some icons by Icons8", showChevron: true)
+            }
         }
-        .padding([.leading, .trailing])
-        .padding(.vertical, 12)
     }
 
     private func row(icon: String, title: String, showChevron: Bool) -> some View {
