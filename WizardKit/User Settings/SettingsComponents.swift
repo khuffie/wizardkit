@@ -7,6 +7,33 @@
 
 import SwiftUI
 
+/// A custom DisclosureGroup style that tints the chevron with the accent color.
+struct AccentChevronDisclosureStyle: DisclosureGroupStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        Button {
+            withAnimation {
+                configuration.isExpanded.toggle()
+            }
+        } label: {
+            HStack {
+                configuration.label
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(Theme.accentColor)
+                    .rotationEffect(.degrees(configuration.isExpanded ? 90 : 0))
+                    .animation(.easeInOut(duration: 0.2), value: configuration.isExpanded)
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+
+        if configuration.isExpanded {
+            configuration.content
+        }
+    }
+}
+
 /// A disclosure-group section for settings screens.
 /// Displays an icon + title label that expands to reveal content.
 public struct SettingsSection<Content: View>: View {
@@ -27,15 +54,18 @@ public struct SettingsSection<Content: View>: View {
             VStack(spacing: 0) {
                 content
             }
-            .padding(.top, 16)
+            .padding(.top, 4)
         } label: {
             Label(title, systemImage: icon)
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundStyle(.tint)
         }
+        .disclosureGroupStyle(AccentChevronDisclosureStyle())
+        .tint(Theme.accentColor)
         .padding([.leading, .trailing])
-        .padding(.vertical, 12)
+        .padding(.top, 12)
+        .padding(.bottom, 16)
     }
 }
 
