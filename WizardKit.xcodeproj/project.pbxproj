@@ -22,6 +22,9 @@
 		79A45F642F6ED1660035BDCE /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 79A45F632F6ED1660035BDCE /* Defaults */; };
 		79A45F662F6ED1660035BDCE /* DefaultsMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 79A45F652F6ED1660035BDCE /* DefaultsMacros */; };
 		79A45F682F6ED2370035BDCE /* WizardSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A45F672F6ED2370035BDCE /* WizardSettings.swift */; };
+		79A45F892F7054F00035BDCE /* PhotoKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A45F882F7054F00035BDCE /* PhotoKitHelper.swift */; };
+		79A45F8C2F705A270035BDCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79A45F8B2F705A270035BDCE /* Assets.xcassets */; };
+		79A45F8E2F705C0C0035BDCE /* AboutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A45F8D2F705C0C0035BDCE /* AboutSection.swift */; };
 		79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */; };
 		79EE02C424C239840044B16D /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE02C324C239840044B16D /* Checkbox.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,9 @@
 		7982442925B12EF7009F6D8B /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		79A45F602F6ECE7D0035BDCE /* SettingsComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsComponents.swift; sourceTree = "<group>"; };
 		79A45F672F6ED2370035BDCE /* WizardSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardSettings.swift; sourceTree = "<group>"; };
+		79A45F882F7054F00035BDCE /* PhotoKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoKitHelper.swift; sourceTree = "<group>"; };
+		79A45F8B2F705A270035BDCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79A45F8D2F705C0C0035BDCE /* AboutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSection.swift; sourceTree = "<group>"; };
 		79AD3A6B2EA54FCE00C22746 /* AnalyticsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHelper.swift; sourceTree = "<group>"; };
 		79EE02C324C239840044B16D /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +98,7 @@
 				79186BFE24B8EF300006183F /* Helpers */,
 				79186BE624B8E8E50006183F /* WizardKit.h */,
 				79186BE724B8E8E50006183F /* Info.plist */,
+				79A45F8B2F705A270035BDCE /* Assets.xcassets */,
 			);
 			path = WizardKit;
 			sourceTree = "<group>";
@@ -104,6 +111,7 @@
 				79186C0224B8EF440006183F /* DateHelper.swift */,
 				79186C0324B8EF440006183F /* WizardHelper.swift */,
 				7982442925B12EF7009F6D8B /* EmailHelper.swift */,
+				79A45F882F7054F00035BDCE /* PhotoKitHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -124,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				79EE02C324C239840044B16D /* Checkbox.swift */,
+				79A45F8D2F705C0C0035BDCE /* AboutSection.swift */,
 			);
 			path = "View Wrappers";
 			sourceTree = "<group>";
@@ -215,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A45F8C2F705A270035BDCE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +248,8 @@
 				79A45F612F6ECE7D0035BDCE /* SettingsComponents.swift in Sources */,
 				7982442A25B12EF7009F6D8B /* EmailHelper.swift in Sources */,
 				796E242E2F6B191100CB8CA6 /* Calendar.swift in Sources */,
+				79A45F8E2F705C0C0035BDCE /* AboutSection.swift in Sources */,
+				79A45F892F7054F00035BDCE /* PhotoKitHelper.swift in Sources */,
 				79A45F682F6ED2370035BDCE /* WizardSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

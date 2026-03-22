@@ -13,11 +13,12 @@ public struct SettingsSection<Content: View>: View {
     let icon: String
     let title: String
     @ViewBuilder let content: Content
-    @State private var isExpanded: Bool = true
+    @State private var isExpanded: Bool
 
-    public init(icon: String, title: String, @ViewBuilder content: () -> Content) {
+    public init(icon: String, title: String, expanded: Bool = true, @ViewBuilder content: () -> Content) {
         self.icon = icon
         self.title = title
+        self._isExpanded = State(initialValue: expanded)
         self.content = content()
     }
 
