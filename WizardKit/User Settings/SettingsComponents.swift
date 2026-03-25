@@ -8,8 +8,9 @@
 import SwiftUI
 
 /// A custom DisclosureGroup style that tints the chevron with the accent color.
-struct AccentChevronDisclosureStyle: DisclosureGroupStyle {
-    func makeBody(configuration: Configuration) -> some View {
+public struct AccentChevronDisclosureStyle: DisclosureGroupStyle {
+    public init() {}
+    public func makeBody(configuration: Configuration) -> some View {
         Button {
             withAnimation {
                 configuration.isExpanded.toggle()

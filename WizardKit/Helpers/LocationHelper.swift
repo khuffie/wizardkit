@@ -84,6 +84,24 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 		}
 	}
 	
+	public func requestWhenInUsePermission(completion: @escaping () -> Void) {
+		self.completion = completion
+
+		switch locationManager.authorizationStatus {
+		case .restricted, .denied:
+			UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+			return
+		case .notDetermined:
+			self.locationManager.requestWhenInUseAuthorization()
+			return
+		case .authorizedWhenInUse, .authorizedAlways:
+			return
+		@unknown default:
+			print("LocationHelper.requestWhenInUsePermission unknown")
+			break
+		}
+	}
+
 	public func getUserLocation(completion: @escaping () -> Void) {
         print("WizardKit.LocationHelper.getUserLocation")
         locationCompletionHandler = completion
