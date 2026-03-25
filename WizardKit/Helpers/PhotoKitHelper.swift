@@ -38,6 +38,40 @@ public final class PhotoKitHelper {
         commitImage(rotated, input: input, formatSuffix: "rotate", adjustmentDescription: "rotate90ccw", asset: asset, completion: completion)
     }
 
+    // MARK: - Live Photo Rotation
+
+    /// Rotates a live photo asset 90° counter-clockwise and commits the edit to the Photos library.
+    public func rotateLivePhoto(asset: PHAsset, input: PHContentEditingInput, completion: @escaping (Bool, Error?) -> Void) {
+        guard let editingContext = PHLivePhotoEditingContext(livePhotoEditingInput: input) else {
+            completion(false, nil)
+            return
+        }
+
+        editingContext.frameProcessor = { frame, _ in
+            return frame.image.oriented(.left)
+        }
+
+        let output = PHContentEditingOutput(contentEditingInput: input)
+        output.adjustmentData = PHAdjustmentData(
+            formatIdentifier: "\(Format.identifier).rotate",
+            formatVersion: Format.version,
+            data: "rotate90ccw".data(using: .utf8)!
+        )
+
+        editingContext.saveLivePhoto(to: output) { success, error in
+            guard success else {
+                DispatchQueue.main.async { completion(false, error) }
+                return
+            }
+            PHPhotoLibrary.shared().performChanges {
+                let request = PHAssetChangeRequest(for: asset)
+                request.contentEditingOutput = output
+            } completionHandler: { success, error in
+                DispatchQueue.main.async { completion(success, error) }
+            }
+        }
+    }
+
     // MARK: - Auto Enhance
 
     /// Applies CIImage auto-adjustment filters and commits the edit to the Photos library.
