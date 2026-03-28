@@ -16,6 +16,9 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 	
 	public static let shared = LocationHelper()
 
+	public var debugMode: Bool = false
+	public var debugLocation: CLLocation = CLLocation(latitude: 43.667694, longitude: -79.371944)
+
 	public var userLocation:CLLocation?
     @Published public var userAddress:String = ""
     @Published public var city:String? = ""
@@ -40,12 +43,8 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 
 		locationManager.delegate = self
 		locationManager.startMonitoringSignificantLocationChanges()
-		self.userLocation = locationManager.location
-        
-        //fake the location
-       // self.userLocation = CLLocation(latitude: 64.68, longitude: -163.40)
+		self.userLocation = debugMode ? debugLocation : locationManager.location
 
-        
         if self.userLocation != nil {
             self.getAddress()
         }
@@ -138,11 +137,7 @@ public class LocationHelper: NSObject, ObservableObject,  CLLocationManagerDeleg
 	
 	public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		//print("WizardKit.LocationHelper.didUpdateLocations")
-		self.userLocation = locations.last
-        
-        //fake the location
-        //self.userLocation = CLLocation(latitude: 64.68, longitude: -163.40)
-        
+		self.userLocation = debugMode ? debugLocation : locations.last
         self.getAddress()
             
 

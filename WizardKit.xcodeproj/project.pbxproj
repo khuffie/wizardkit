@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79008FEE2F748FF4009A4FAD /* GradientTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79008FED2F748FF4009A4FAD /* GradientTitleView.swift */; };
 		79186BE824B8E8E50006183F /* WizardKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 79186BE624B8E8E50006183F /* WizardKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79186C0524B8EF450006183F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79186BFF24B8EF440006183F /* LocationHelper.swift */; };
 		79186C0824B8EF450006183F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79186C0224B8EF440006183F /* DateHelper.swift */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		79008FED2F748FF4009A4FAD /* GradientTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTitleView.swift; sourceTree = "<group>"; };
 		79186BE324B8E8E50006183F /* WizardKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WizardKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79186BE624B8E8E50006183F /* WizardKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WizardKit.h; sourceTree = "<group>"; };
 		79186BE724B8E8E50006183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 			children = (
 				79EE02C324C239840044B16D /* Checkbox.swift */,
 				79A45F8D2F705C0C0035BDCE /* AboutSection.swift */,
-				79008FED2F748FF4009A4FAD /* GradientTitleView.swift */,
 			);
 			path = "View Wrappers";
 			sourceTree = "<group>";
@@ -248,7 +245,6 @@
 				79186C0824B8EF450006183F /* DateHelper.swift in Sources */,
 				79186C1924B8F0B80006183F /* JSONDecoder+Extensions.swift in Sources */,
 				79AD3A6C2EA54FD200C22746 /* AnalyticsHelper.swift in Sources */,
-				79008FEE2F748FF4009A4FAD /* GradientTitleView.swift in Sources */,
 				79A45F612F6ECE7D0035BDCE /* SettingsComponents.swift in Sources */,
 				7982442A25B12EF7009F6D8B /* EmailHelper.swift in Sources */,
 				796E242E2F6B191100CB8CA6 /* Calendar.swift in Sources */,
