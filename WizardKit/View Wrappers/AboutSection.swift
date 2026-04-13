@@ -84,6 +84,33 @@ public struct AboutSection: View {
             .padding(.horizontal)
             .padding(.vertical, 10)
 
+            // Device Info
+            HStack(spacing: 10) {
+                Image(systemName: "iphone")
+                    .foregroundStyle(.tint)
+                    .frame(width: 22, height: 22)
+
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack(spacing: 4) {
+                        Text("App Version")
+                            .foregroundStyle(.tint)
+                        Text("\(Bundle.main.releaseVersionNumber ?? "-") (\(Bundle.main.buildVersionNumber ?? "-"))")
+                            .foregroundStyle(.secondary)
+                    }
+                    HStack(spacing: 4) {
+                        Text("OS Version")
+                            .foregroundStyle(.tint)
+                        Text("\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)")
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .font(.footnote)
+
+                Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 10)
+
             // Icons8
             Link(destination: URL(string: "https://icons8.com/")!) {
                 row(icon: "icons8", title: "Some icons by Icons8", showChevron: true)

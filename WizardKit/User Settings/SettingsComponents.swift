@@ -57,7 +57,11 @@ public struct SettingsSection<Content: View>: View {
             }
             .padding(.top, 4)
         } label: {
-            Label(title, systemImage: icon)
+            HStack(spacing: 8) {
+                Image(systemName: icon)
+                    .frame(width: 24)
+                Text(title)
+            }
                 .font(.title3)
                 .fontWeight(.semibold)
                 .foregroundStyle(.tint)

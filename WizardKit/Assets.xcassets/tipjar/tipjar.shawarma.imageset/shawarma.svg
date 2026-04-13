@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="cone-clip">
+      <path d="M -26,-36 C -25,-36 -12,36 -12,36 L 12,36 C 12,36 25,-36 26,-36 Z" transform="translate(50,50)"/>
+    </clipPath>
+  </defs>
+
+  <!-- Spit stubs -->
+  <line x1="50" y1="5"  x2="50" y2="14" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="50" y1="86" x2="50" y2="95" stroke="black" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Cone outline -->
+  <path d="M 24,14 C 25,14 38,86 38,86 L 62,86 C 62,86 75,14 76,14 Z"
+        fill="none" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <!-- Layer lines clipped -->
+  <g clip-path="url(#cone-clip)">
+    <path d="M 22,31 Q 50,36 78,31" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 26,48 Q 50,53 74,48" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 31,65 Q 50,70 69,65" fill="none" stroke="black" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

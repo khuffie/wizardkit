@@ -35,6 +35,7 @@ public struct TipJarView: View {
     private let items: [TipJarItem]
     private let storeKit: WizardStoreKitHelper
     private let subtitle: String
+    private let bundle = Bundle(for: PhotoKitHelper.self)
 
     public init(
         items: [TipJarItem],
@@ -61,7 +62,7 @@ public struct TipJarView: View {
                                 .foregroundStyle(.tint)
                                 .frame(width: 28, height: 28)
                         } else if let image = item.image {
-                            Image(image)
+                            Image(image, bundle: bundle)
                                 .resizable()
                                 .renderingMode(.template)
                                 .foregroundStyle(.tint)
