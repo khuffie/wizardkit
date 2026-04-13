@@ -52,7 +52,6 @@ public enum Theme {
         // Greens
         Swatch(id: "forest",   name: "Forest",        hex: "2D6A4F"),
         Swatch(id: "emerald",  name: "Emerald",       hex: "2DC653"),
-        Swatch(id: "lime",     name: "Lime",          hex: "7CB518"),
         Swatch(id: "mint",     name: "Mint",          hex: "52B788"),
         // Blues
         Swatch(id: "ocean",    name: "Ocean Blue",    hex: "0096C7"),
@@ -96,5 +95,12 @@ extension UIColor {
         }
 
         self.init(red: r, green: g, blue: b, alpha: a)
+    }
+
+    /// Returns the receiver's color as a 6-character uppercase hex string (e.g. "FF6B6B").
+    public var hexString: String {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        return String(format: "%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
     }
 }

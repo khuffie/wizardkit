@@ -97,6 +97,85 @@ public struct SettingsToggleRow: View {
     }
 }
 
+/// A section for choosing the app's accent colour from predefined swatches or a custom colour.
+public struct AccentColorSection: View {
+    @Binding var selectedHex: String
+    var expanded: Bool
+    var onChange: ((String) -> Void)?
+
+    @State private var customColor: Color = Theme.accentColor
+
+    private let colorColumns = Array(repeating: GridItem(.flexible(), spacing: 16), count: 5)
+
+    private var isCustomColor: Bool {
+        !Theme.swatches.contains { $0.hex.caseInsensitiveCompare(selectedHex) == .orderedSame }
+    }
+
+    public init(selectedHex: Binding<String>, expanded: Bool = true, onChange: ((String) -> Void)? = nil) {
+        self._selectedHex = selectedHex
+        self.expanded = expanded
+        self.onChange = onChange
+    }
+
+    public var body: some View {
+        SettingsSection(icon: "paintbrush", title: "Accent Colour", expanded: expanded) {
+            VStack(spacing: 12) {
+                LazyVGrid(columns: colorColumns, spacing: 16) {
+                    ForEach(Theme.swatches) { swatch in
+                        Button {
+                            selectedHex = swatch.hex
+                            onChange?(swatch.hex)
+                        } label: {
+                            Circle()
+                                .fill(swatch.color)
+                                .frame(width: 44, height: 44)
+                                .overlay {
+                                    if swatch.hex.caseInsensitiveCompare(selectedHex) == .orderedSame {
+                                        Image(systemName: "checkmark")
+                                            .font(.system(size: 16, weight: .bold))
+                                            .foregroundStyle(.white)
+                                    }
+                                }
+                        }
+                        .buttonStyle(.plain)
+                    }
+
+                    // Custom colour picker
+                    ZStack {
+                        ColorPicker("", selection: $customColor, supportsOpacity: false)
+                            .labelsHidden()
+                            .opacity(0.015)
+
+                        Circle()
+                            .fill(
+                                AngularGradient(
+                                    colors: [.red, .yellow, .green, .cyan, .blue, .purple, .red],
+                                    center: .center
+                                )
+                            )
+                            .frame(width: 44, height: 44)
+                            .overlay {
+                                if isCustomColor {
+                                    Image(systemName: "checkmark")
+                                        .font(.system(size: 16, weight: .bold))
+                                        .foregroundStyle(.white)
+                                }
+                            }
+                            .allowsHitTesting(false)
+                    }
+                }
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 8)
+        }
+        .onChange(of: customColor) { _, newColor in
+            let hex = UIColor(newColor).hexString
+            selectedHex = hex
+            onChange?(hex)
+        }
+    }
+}
+
 /// A menu-picker row for settings screens.
 public struct SettingsMenuRow<T: Hashable & CaseIterable, Label: View>: View where T.AllCases: RandomAccessCollection {
     let title: String

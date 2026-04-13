@@ -34,7 +34,7 @@ public struct AboutSection: View {
         AppLink(app: .photoWizard, icon: "icon-photo", name: "Photo Wizard", catName: "Gandalf", url: "https://apps.apple.com/us/app/photo-wizard/id6760589963", hidden: false),
         AppLink(app: .widgetWizard, icon: "icon-widget", name: "Widget Wizard", catName: "Marvin", url: "https://apps.apple.com/ca/app/widget-wizard/id1524227906", hidden: false),
         AppLink(app: .boardGameWizard, icon: "icon-bg", name: "Board Game Wizard", catName: "Link", url: "https://apps.apple.com/ca/app/board-game-wizard/id6446234137", hidden: false),
-        AppLink(app: .torontoWizard, icon: "icon-toronto", name: "Toronto Wizard", catName: "Raccoon", url: "https://apps.apple.com/us/app/toronto-wizard/id1515135610", hidden: true),
+        AppLink(app: .torontoWizard, icon: "icon-toronto", name: "Toronto Wizard", catName: "Raccoon", url: "https://apps.apple.com/us/app/toronto-wizard/id1515135610", hidden: false),
     ]
 
     private var visibleApps: [AppLink] {
